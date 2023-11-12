@@ -21,7 +21,6 @@ class Credential(BaseModel):
     class Config:
         orm_mode = True
         
-        
 class CredentialDB(Base):
     __tablename__ = "credentials"
 
