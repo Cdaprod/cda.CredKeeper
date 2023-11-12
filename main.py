@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-import models, schemas, engine as engine_module
+import models, schemas, engine
 from __init__ import SessionLocal, db_engine, Base
 from utils import setup_logger
 
