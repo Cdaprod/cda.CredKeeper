@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from __init__ import Base
+from database import SessionLocal, Base, db_engine
 from models import CredentialDB, CredentialType  # Corrected import
 
 TEST_DATABASE_URL = "sqlite:///./test.db"

@@ -4,7 +4,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from __init__ import Base
+from database import Base
+
 
 @pytest.fixture(scope="function")
 def db_session():

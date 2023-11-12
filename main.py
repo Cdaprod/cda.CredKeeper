@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 import models, schemas, engine
-from __init__ import SessionLocal, db_engine, Base
+from database import SessionLocal, db_engine, Base
 from utils import setup_logger
 
 # Setting up Logger
@@ -24,7 +24,7 @@ def create_credential(credential: schemas.CredentialCreate, db: Session = Depend
     db_credential = engine.get_credential(db, name=credential.name)
     if db_credential:
         raise HTTPException(status_code=400, detail="Credential already registered")
-    return db_engine.create_credential(db=db, credential=credential)
+    return engine.create_credential(db=db, credential=credential)
 
 @app.get("/credentials/{name}", response_model=schemas.Credential)
 def read_credential(name: str, db: Session = Depends(get_db)):
@@ -43,14 +43,14 @@ def update_credential(name: str, credential: schemas.CredentialCreate, db: Sessi
     db_credential = engine.get_credential(db, name=name)
     if db_credential is None:
         raise HTTPException(status_code=404, detail="Credential not found")
-    return db_engine.update_credential(db, name, credential)
+    return engine.update_credential(db, name, credential)
 
 @app.delete("/credentials/{name}", response_model=schemas.Credential)
 def delete_credential(name: str, db: Session = Depends(get_db)):
     db_credential = engine.get_credential(db, name=name)
     if db_credential is None:
         raise HTTPException(status_code=404, detail="Credential not found")
-    return db_engine.delete_credential(db, name)
+    return engine.delete_credential(db, name)
 
 @app.get("/healthcheck")
 def health_check():
