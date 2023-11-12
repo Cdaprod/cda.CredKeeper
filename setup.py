@@ -21,6 +21,7 @@ setup(
         'pydantic>=1.8.2',
         'sqlalchemy>=1.4.22',
         'cryptography',
+        'httpx',
         # Add any additional packages needed
     ],
     classifiers=[

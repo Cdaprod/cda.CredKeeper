@@ -1,7 +1,8 @@
-from pydantic import BaseModel, SecretStr, Field, Column, String, Enum
+from sqlalchemy import Column, String, Enum
+from pydantic import BaseModel, SecretStr, Field
 from typing import Optional, Dict
 import enum
-from . import Base
+from . import Base  # Adjust this import if necessary
 
 class CredentialType(enum.Enum):
     API_KEY = "API Key"
@@ -10,7 +11,6 @@ class CredentialType(enum.Enum):
     DATABASE = "Database"
     OAUTH = "OAuth"
     OTHER = "Other"
-    
     
 class Credential(BaseModel):
     name: str
