@@ -17,6 +17,6 @@ def create_test_credential(db_session):
     db_session.delete(credential)
     db_session.commit()
 
-def test_read_credential(db_session, create_test_credential):
+def test_read_credential(create_test_credential, db_session):
     response = client.get("/credentials/test")
     assert response.status_code == 200
