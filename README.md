@@ -2,6 +2,8 @@
 
 CredKeeper is a Python package for securely managing various types of credentials such as API keys, database connections, SSH keys, and environment variables.
 
+[![Python Package](https://github.com/Cdaprod/cda.CredKeeper/actions/workflows/python-package.yaml/badge.svg)](https://github.com/Cdaprod/cda.CredKeeper/actions/workflows/python-package.yaml)
+
 ## Features
 
 - Secure storage of credentials
