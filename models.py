@@ -19,7 +19,7 @@ class Credential(BaseModel):
     details: Optional[Dict[str, str]] = Field(default_factory=dict)
 
     class Config:
-        orm_mode = True
+        from_attributes = True  
         
 class CredentialDB(Base):
     __tablename__ = "credentials"
