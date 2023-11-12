@@ -7,7 +7,7 @@ from utils import setup_logger
 # Setting up Logger
 logger = setup_logger("CredKeeper")
 
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=db_engine)
 
 app = FastAPI(title="CredKeeper", description="Manage your credentials securely", version="1.0.0")
 
