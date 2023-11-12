@@ -21,33 +21,33 @@ def get_db():
 
 @app.post("/credentials/", response_model=schemas.Credential)
 def create_credential(credential: schemas.CredentialCreate, db: Session = Depends(get_db)):
-    db_credential = db_engine.get_credential(db, name=credential.name)
+    db_credential = engine.get_credential(db, name=credential.name)
     if db_credential:
         raise HTTPException(status_code=400, detail="Credential already registered")
     return db_engine.create_credential(db=db, credential=credential)
 
 @app.get("/credentials/{name}", response_model=schemas.Credential)
 def read_credential(name: str, db: Session = Depends(get_db)):
-    db_credential = db_engine.get_credential(db, name=name)
+    db_credential = engine.get_credential(db, name=name)
     if db_credential is None:
         raise HTTPException(status_code=404, detail="Credential not found")
     return db_credential
 
 @app.get("/credentials/", response_model=list[schemas.Credential])
 def read_credentials(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    credentials = db_engine.get_credentials(db, skip=skip, limit=limit)
+    credentials = engine.get_credentials(db, skip=skip, limit=limit)
     return credentials
 
 @app.put("/credentials/{name}", response_model=schemas.Credential)
 def update_credential(name: str, credential: schemas.CredentialCreate, db: Session = Depends(get_db)):
-    db_credential = db_engine.get_credential(db, name=name)
+    db_credential = engine.get_credential(db, name=name)
     if db_credential is None:
         raise HTTPException(status_code=404, detail="Credential not found")
     return db_engine.update_credential(db, name, credential)
 
 @app.delete("/credentials/{name}", response_model=schemas.Credential)
 def delete_credential(name: str, db: Session = Depends(get_db)):
-    db_credential = db_engine.get_credential(db, name=name)
+    db_credential = engine.get_credential(db, name=name)
     if db_credential is None:
         raise HTTPException(status_code=404, detail="Credential not found")
     return db_engine.delete_credential(db, name)

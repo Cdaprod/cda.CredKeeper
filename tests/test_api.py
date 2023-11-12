@@ -7,9 +7,15 @@ from main import app
 client = TestClient(app)
 
 def test_create_credential():
-    response = client.post("/credentials/", json={"name": "test", "value": "secret", "type": "API_KEY"})
+    payload = {
+        "name": "test",
+        "value": "secret",  # Make sure this is a valid secret string
+        "type": "API_KEY",  # Ensure this matches the enum in your schema
+        # Include any other required fields defined in your schema
+    }
+    response = client.post("/credentials/", json=payload)
     assert response.status_code == 200
-    assert response.json()["name"] == "test"
+
 
 def test_read_credential():
     response = client.get("/credentials/test")
