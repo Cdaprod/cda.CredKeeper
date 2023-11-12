@@ -13,7 +13,7 @@ setup(
     description='A Python package for managing various credentials securely, with API access.',
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/CredKeeper',
+    url='https://github.com/Cdaprod/CredKeeper',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -22,7 +22,6 @@ setup(
         'sqlalchemy>=1.4.22',
         'cryptography',
         'httpx',
-        # Add any additional packages needed
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
