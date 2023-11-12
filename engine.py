@@ -1,5 +1,5 @@
-from . import models
-from .utils import setup_logger
+import models
+from utils import setup_logger
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 

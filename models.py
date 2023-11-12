@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, Enum
 from pydantic import BaseModel, SecretStr, Field
 from typing import Optional, Dict
 import enum
-import Base
+from __init__ import Base
 
 class CredentialType(enum.Enum):
     API_KEY = "API Key"

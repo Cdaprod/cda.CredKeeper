@@ -1,14 +1,13 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-import models, engine, schemas
-
-from .database import SessionLocal, engine
-from .utils import setup_logger
+import models, engine as engine_module, schemas
+from __init__ import SessionLocal, db_engine, Base
+from utils import setup_logger
 
 # Setting up Logger
 logger = setup_logger("CredKeeper")
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="CredKeeper", description="Manage your credentials securely", version="1.0.0")
 
