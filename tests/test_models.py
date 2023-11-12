@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import models
+from models import CredentialDB
 from main import app
 
 TEST_DATABASE_URL = "sqlite:///./test.db"  # SQLite will create this file if it doesn't exist
