@@ -9,7 +9,7 @@ logger = setup_logger("CredKeeper")
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="CredKeeper API", description="Manage your credentials securely", version="1.0.0")
+app = FastAPI(title="CredKeeper", description="Manage your credentials securely", version="1.0.0")
 
 # Dependency to get the database session
 def get_db():

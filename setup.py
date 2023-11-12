@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='CredKeeper',
-    version='0.1.0',
+    version='1.0.0',
     author='David Cannan',
     author_email='Cdaprod@Cdaprod.dev',
     description='A Python package for managing various credentials securely, with API access.',
@@ -29,5 +29,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.11',
 )
